@@ -1,1 +1,6 @@
 @import "tailwindcss";
+
+@custom-variant medicina (&:where([data-theme=medicina], [data-theme=medicina] *));
+@custom-variant veterinaria (&:where([data-theme=veterinaria], [data-theme=veterinaria] *));
+@custom-variant esportes (&:where([data-theme=esportes], [data-theme=esportes] *));
+@custom-variant cosmeticos (&:where([data-theme=cosmeticos], [data-theme=cosmeticos] *));

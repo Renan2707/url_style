@@ -6,23 +6,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Url Style</title>
     <link href="{% static 'css/main.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 </head>
 <body>
 
     <header>
-        <div class="bg-blue-600 w-full h-20 text-center font-semibold text-white text-2xl">
-            <p>CABEÇALHO</p>
+        <div class="bg-blue-950 w-full h-20 text-center font-semibold text-white flex items-center justify-center">
+            <div class="max-w-7xl w-11/12 mx-auto flex items-center">
+                <div class="w-1/2">
+                    <img src="https://s3.sa-east-1.amazonaws.com/macrosul.media/itens/logos/macrosul/logo-macrosul-branco/logo-macrosul-branco-365-941.png" alt="" class="w-40">
+                </div>
+                <div class="w-1/2 flex justify-end space-x-9">
+                    <div>
+                        <a href="{% url 'home_macrosul' %}"><i class="fa-solid fa-house-chimney"></i></a>
+                    </div>
+                    <div>
+                        <a href="{% url 'home_medicina' %}">Medicina</a>
+                    </div>
+                    <div>
+                        <a href="{% url 'home_veterinaria' %}">Veterinária</a>
+                    </div>
+                    <div>
+                        <a href="{% url 'home_esportes' %}">Esportes</a>
+                    </div>
+                    <div>
+                        <a href="{% url 'home_cosmeticos' %}">Cosméticos</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </header>
 
-    <main class="min-h-screen">
+    <main>
         {% block content %}
         {% endblock content %}
     </main>
    
-    <footer class="bg-gray-600 w-full h-96">
-        <p>RODAPÉ</p>
+    <footer class="bg-blue-950 veterinaria:bg-purple-500 medicina:bg-green-500 esportes:bg-red-500 cosmeticos:bg-yellow-500 w-full h-96 flex items-center justify-center">
+        <img src="https://s3.sa-east-1.amazonaws.com/macrosul.media/itens/logos/macrosul/logo-macrosul-branco/logo-macrosul-branco-365-941.png" alt="">
     </footer>
-    
+
+  <script>
+    // Pega o caminho da URL (ex: /home_veterinaria)
+    const path = window.location.pathname;
+
+    // Define o tema baseado no caminho
+    const html = document.documentElement;
+
+    if (path.includes('home_veterinaria')) {
+      html.setAttribute('data-theme', 'veterinaria');
+    } else if (path.includes('home_medicina')) {
+      html.setAttribute('data-theme', 'medicina');
+    } else if (path.includes('home_esportes')) {
+      html.setAttribute('data-theme', 'esportes');
+    } else if (path.includes('home_cosmeticos')) {
+      html.setAttribute('data-theme', 'cosmeticos');
+    } else {
+      html.removeAttribute('data-theme'); // tema padrão
+    }
+  </script>
 </body>
 </html>
