@@ -47,23 +47,22 @@
     </footer>
 
   <script>
-    // Pega o caminho da URL (ex: /home_veterinaria)
     const path = window.location.pathname;
-
-    // Define o tema baseado no caminho
     const html = document.documentElement;
 
-    if (path.includes('home_veterinaria')) {
-      html.setAttribute('data-theme', 'veterinaria');
-    } else if (path.includes('home_medicina')) {
-      html.setAttribute('data-theme', 'medicina');
-    } else if (path.includes('home_esportes')) {
-      html.setAttribute('data-theme', 'esportes');
-    } else if (path.includes('home_cosmeticos')) {
-      html.setAttribute('data-theme', 'cosmeticos');
-    } else {
-      html.removeAttribute('data-theme'); // tema padrão
+    let theme = "macrosul"; // tema padrão
+
+    if (path.includes("home_veterinaria")) {
+      theme = "veterinaria";
+    } else if (path.includes("home_medicina")) {
+      theme = "medicina";
+    } else if (path.includes("home_esportes")) {
+      theme = "esportes";
+    } else if (path.includes("home_cosmeticos")) {
+      theme = "cosmeticos";
     }
+
+    html.setAttribute("data-theme", theme);
   </script>
 </body>
 </html>
